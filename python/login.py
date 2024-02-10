@@ -13,7 +13,6 @@ def can_connect(user_mail):
     """user mail"""
     user = r.get(user_mail)
     user_data = json.loads(user)
-    print(f"ICICICIICICIC {user}")
     last_time = datetime.fromisoformat(user_data["last_login"])
     interval = datetime.now() - last_time
     #Last connexion was more than 10 minutes ago
@@ -48,5 +47,4 @@ if __name__ == '__main__':
     user_mail = sys.argv[1]
     print(user_mail)
     can_connect(user_mail)
-    
     
