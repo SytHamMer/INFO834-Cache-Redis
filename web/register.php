@@ -21,14 +21,21 @@ if(isset($_POST['name']) && isset($_POST['last_name']) && isset($_POST['email'])
 
     $json_data = json_encode($data);
 
-    echo $json_data;
+    // echo $json_data;
+    // Écrire les données JSON dans un fichier
+    $json_file = '../python/user.json';
+    file_put_contents($json_file, $json_data);
 
-    $command = escapeshellcmd("python3 C:\Users\mathy\Desktop\COURS\S8\INFO834\TP1\python\register.py '$json_data'");
-    $output = shell_exec($command);
-    echo $output;
+    // Chemin vers votre script Python
+    $pythonScript = 'C:\Users\mathy\Desktop\COURS\S8\INFO834\TP1\python\register.py';
 
-    // header('Location: success.html');
-    // exit;
+    // Exécuter le script Python avec le fichier JSON en argument
+    $output = shell_exec("python $pythonScript $json_file");
+
+    // Afficher la sortie du script Python
+    // echo $output;
+    header('Location: success.html');
+    exit;
 }
 
 ?>

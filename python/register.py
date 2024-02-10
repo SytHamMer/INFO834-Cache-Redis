@@ -11,7 +11,11 @@ r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 #add to redis for the first register of user
 
-def register(infos):
+def register(user):
+    print(user)
+    with open(user, 'r') as f:
+        infos = json.load(f)
+    
     infos["last_login"] = datetime.now().isoformat()
     infos["nb_connection"] = 1
     data_json = json.dumps(infos)
@@ -21,11 +25,6 @@ def register(infos):
         
 if __name__ == '__main__':
     user = sys.argv[1]
-    # user = {
-    #     "name":"name",
-    #     "last_name":"last_name",
-    #     "email":"email@email.email",
-    #     "password":"password",
-    # }
+    # user = {"name":"g","email":"g@g.g","lastname":"g","password":"g"}
     register(user)
     
