@@ -3,6 +3,10 @@
 https://github.com/SytHamMer/INFO834-Cache-Redis
 
 
+## Goal
+
+The goal is to create a python script with redis in order to detect spam of connection and block it.
+If someone connect more than 10 times in 10 minutes he is automatically block until the 10 minutes passed.
 
 ## How to run it:
 run a redis server at port 6379
@@ -35,6 +39,7 @@ go to
 If you want to login:
 
 ~/TP1/web/login.php
+
 
 ## Technologies:
 - Redis
